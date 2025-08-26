@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Hospital Appointment & Billing System (JSON, CLI) — Starter (No Solution)
+Hospital Appointment System (JSON, CLI) — Starter (No Solution)
 
 Complete the TODOs. Keep functions/signatures the same.
 Use only Python standard libraries (json, os, datetime).
@@ -21,11 +21,9 @@ def load():
 	#         "next_doctor_id": 1,
 	#         "next_patient_id": 1,
 	#         "next_appointment_id": 1,
-	#         "next_bill_id": 1,
 	#         "doctors": [],
 	#         "patients": [],
-	#         "appointments": [],
-	#         "bills": []
+	#         "appointments": []
 	#       }
 	raise NotImplementedError("TODO: implement load()")
 
@@ -111,30 +109,6 @@ def list_appointments(state, pid=None, did=None):
 	# rows: id, pid, did, start, duration
 	raise NotImplementedError("TODO: implement list_appointments()")
 
-# ---------- Billing ----------
-
-def generate_bill(state, aid):
-	"""Generate bill for an appointment; print bill id and amount."""
-	# TODO:
-	# 1) find appointment by id; if not found: print(f"Appointment with ID {aid} does not exist"); return
-	# 2) get doctor; compute amount = rate * duration
-	# 3) create bill:
-	#    {"id": ..., "aid": aid, "pid": appointment["pid"], "did": appointment["did"], "amount": round(amount, 2)}
-	# 4) append, increment next_bill_id
-	# 5) print(f"Bill generated with ID {id} for ${amount:.2f}")
-	raise NotImplementedError("TODO: implement generate_bill()")
-
-def list_bills(state, pid=None):
-	"""Print bills (optionally filtered by patient)."""
-	# TODO:
-	# 1) filter by pid if provided
-	# 2) if empty -> print("No bills found")
-	# 3) else header:
-	# ID    Patient   Appointment   Amount
-	# ----  -------   -----------   ------
-	# rows: id, pid, aid, $X.XX
-	raise NotImplementedError("TODO: implement list_bills()")
-
 # ---------- CLI ----------
 
 def menu():
@@ -151,9 +125,7 @@ def menu():
 		"4": "List patients",
 		"5": "Schedule appointment",
 		"6": "List appointments",
-		"7": "Generate bill",
-		"8": "List bills",
-		"9": "Save & exit"
+		"7": "Save & exit"
 	}
 	while True:
 		print("\nHospital System — choose an action:")
@@ -183,14 +155,6 @@ def menu():
 				else:
 					list_appointments(state)
 			elif choice == "7":
-				generate_bill(state, int(input("Appointment ID: ")))
-			elif choice == "8":
-				f = input("Filter by (p)atient id / (n)one? ").lower()
-				if f == "p":
-					list_bills(state, pid=int(input("Patient ID: ")))
-				else:
-					list_bills(state)
-			elif choice == "9":
 				save(state); print("Saved. Bye!"); break
 			else:
 				print("Invalid choice.")
