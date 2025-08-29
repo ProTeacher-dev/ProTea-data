@@ -43,6 +43,39 @@ exercise1/
 └── gradebook.json    # Database file (created when you save)
 ```
 
+## Data Structure Example
+```
+{
+  "next_id": 3,
+  "students": [
+    {
+      "id": 1,
+      "name": "Alice"
+    },
+    {
+      "id": 2,
+      "name": "Bob"
+    }
+  ],
+  "grades": [
+    {
+      "sid": 1,
+      "course": "CS101",
+      "score": 95.0
+    },
+    {
+      "sid": 2,
+      "course": "CS101",
+      "score": 78.0
+    },
+    {
+      "sid": 1,
+      "course": "MATH200",
+      "score": 88.0
+    }
+  ]
+}
+```
 
 ## Implementation Guide
 

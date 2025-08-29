@@ -52,6 +52,40 @@ exercise2/
 └── hospital.json      # created when saving
 ```
 
+## Data Structure
+```
+{
+  "next_doctor_id": 2,
+  "next_patient_id": 2,
+  "next_appointment_id": 2,
+  "doctors": [
+    {
+      "id": 1,
+      "name": "Dr. Smith",
+      "specialization": "Cardiology",
+      "rate": 150.0
+    }
+  ],
+  "patients": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "phone": "555-1234",
+      "email": "john@example.com"
+    }
+  ],
+  "appointments": [
+    {
+      "id": 1,
+      "pid": 1,
+      "did": 1,
+      "start": "2024-01-15 10:00",
+      "duration": 2
+    }
+  ]
+}
+```
+
 ## Implementation Order
 
 1. `load()` and `save()`
